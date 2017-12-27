@@ -1,16 +1,15 @@
 import re
 
-def searching(file):
-    with open(file) as f:
-        f_read = f.readlines()
-   
-    word = []
-    for line in f_read:
-        word += re.findall(r'\w+',line)
-    get_word = input('Enter word:')
-    if get_word in word:
-        print(repr(get_word),'word exist in',file)
-    else:
-        print(repr(get_word),'word does not exist in',file)
-        
-searching('llinux.txt')
+def seraching(file):
+  with open(file,'r') as f:
+    fr = f.read()
+  get_data = input('Enter Word:')
+  match = re.search(get_data,fr)
+  
+  if match:
+    print(repr(match.group()),'Word exist in',file)
+  else:
+    print(repr(get_data),'Word does not exist in',file)
+    
+seraching('zlinux.txt')
+    
