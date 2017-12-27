@@ -1,15 +1,8 @@
 #!/usr/bin/python3
 
-import re
-
 with open('file1.txt') as f1:
-    file1_read = f1.readlines()
-    
-file = []
-for i in file1_read:
-    file1 = re.findall(r'\w+',i)
-    file += file1
-    str_list = list(filter(None, file))
-    
-print(len(str_list))
+    file1_read = f1.read().split()
+
+print(len(file1_read))
+
                        
