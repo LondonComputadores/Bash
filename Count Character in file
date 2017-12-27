@@ -4,8 +4,10 @@ import re
 
 with open('file1.txt') as f1:
     file1_read = f1.readlines()
-
+    
+charcters = []
 for i in file1_read:
-    file1 = re.findall(r'[\w\s]',i)
+    file1 = re.findall(r'.',i)
+    charcters += i.rstrip()
 
-print(len(file1))
+print(len(charcters))
