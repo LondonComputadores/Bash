@@ -1,0 +1,16 @@
+import re
+
+def searching(file):
+    with open(file) as f:
+        f_read = f.readlines()
+   
+    word = []
+    for line in f_read:
+        word += re.findall(r'\w+',line)
+    get_word = input('Enter word:')
+    if get_word in word:
+        print(repr(get_word),'word exist in',file)
+    else:
+        print(repr(get_word),'word does not exist in',file)
+        
+searching('llinux.txt')
