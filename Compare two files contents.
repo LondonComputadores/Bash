@@ -1,0 +1,22 @@
+import re
+
+def counting(file):
+    with open(file) as f1:
+        f1_read = f1.readlines() 
+        file = []
+        for i in f1_read:
+            finding = re.findall(r'\w+',i)
+            file += finding
+            str_list = list(filter(None, file))  
+    return str_list
+        
+def comparing(file1, file2):
+    c1 = counting(file1)
+    c2 = counting(file2)
+    if c1 == c2:
+        print('Both file are same')
+    else:
+        print('Both file are not same')
+
+comparing('file1.txt', 'file2.txt')
+                       
