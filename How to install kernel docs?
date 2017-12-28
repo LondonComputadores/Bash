@@ -1,0 +1,9 @@
+Redhat:
+# yum install kernel-doc
+# ls -lh /usr/share/doc/kernel-doc-
+# less /usr/share/doc/kernel-doc-3.10.0/Documentation/filesystems/proc.txt
+
+
+Ubuntu:
+$ apt install linux-doc 
+$ ls -ld /usr/share/doc/linux-doc./*
