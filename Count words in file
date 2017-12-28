@@ -1,8 +1,0 @@
-#!/usr/bin/python3
-
-with open('file1.txt') as f1:
-    file1_read = f1.read().split()
-
-print(len(file1_read))
-
-                       
