@@ -8,5 +8,5 @@ Ubuntu:
 $ apt install linux-doc 
 $ ls -ld /usr/share/doc/linux-doc./*
 
-How to list all kermel text files?
+How to list all kernel text files?
 $ ls -ld /usr/share/doc/linux-doc/*/*.txt
