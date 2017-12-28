@@ -3,4 +3,4 @@ How to find all failed SSH login attempts in Linux?
 Centos,Redhat:
 # egrep "Fail(ed|ure)" /var/log/secure
 Ubuntu:
-# egrep "Fail(ed|ure)" /var/log/ayth.log
+# egrep "Fail(ed|ure)" /var/log/auth.log
