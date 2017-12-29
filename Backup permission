@@ -1,0 +1,5 @@
+To Backup of permissions:
+getfacl -R / > permissions.facl
+
+To Restore permissions:
+setfacl --restore=permissions.facl
