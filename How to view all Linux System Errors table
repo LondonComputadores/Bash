@@ -1,3 +1,3 @@
 To see all Linux System Errors Number and Description :
 
-$ cat /usr/include/asm-generic/{errno-base.h,errno.h}
+$ cat /usr/include/asm-generic/{errno-base.h,errno.h} | egrep -o "[0-9]{1,3}\s.*$"
