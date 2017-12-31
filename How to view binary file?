@@ -1,3 +1,39 @@
 1. nm
 2. objdump
 3. hexdump
+
+objdump --disassemble bin/flip
+
+Output:
+bin/flip: file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+__text:
+100001220: 55 pushq %rbp
+100001221: 48 89 e5 movq %rsp, %rbp
+100001224: 48 83 ec 20 subq $32, %rsp
+100001228: c7 45 fc 00 00 00 00 movl $0, -4(%rbp)
+10000122f: 89 7d f8 movl %edi, -8(%rbp)
+100001232: 48 89 75 f0 movq %rsi, -16(%rbp)
+100001236: 81 7d f8 03 00 00 00 cmpl $3, -8(%rbp)
+10000123d: 0f 8d 0c 00 00 00 jge 12 <_main+0x2F>
+100001243: 48 8b 45 f0 movq -16(%rbp), %rax
+100001247: 48 8b 38 movq (%rax), %rdi
+10000124a: e8 61 01 00 00 callq 353 <__Z9exitUsagePKc>
+10000124f: 48 8b 45 f0 movq -16(%rbp), %rax
+100001253: 48 8b 40 08 movq 8(%rax), %rax
+100001257: 0f be 08 movsbl (%rax), %ecx
+10000125a: 81 f9 2d 00 00 00 cmpl $45, %ecx
+100001260: 0f 84 0c 00 00 00 je 12 <_main+0x52>
+100001266: 48 8b 45 f0 movq -16(%rbp), %rax
+10000126a: 48 8b 38 movq (%rax), %rdi
+10000126d: e8 3e 01 00 00 callq 318 <__Z9exitUsagePKc>
+100001272: 48 8b 45 f0 movq -16(%rbp), %rax
+100001276: 48 8b 40 08 movq 8(%rax), %rax
+10000127a: 8a 48 01 movb 1(%rax), %cl
+10000127d: 88 4d ef movb %cl, -17(%rbp)
+100001280: 0f be 55 ef movsbl -17(%rbp), %edx
+100001284: 81 fa 75 00 00 00 cmpl $117, %edx
+10000128a: 0f 84 39 00 00 00 je 57 <_main+0xA9>
+
+... and about 99 pages more. :) But, at least you'll be able to see the basic format of the program.
