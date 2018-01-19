@@ -1,0 +1,7 @@
+
+What is strace?
+$ whatis strace
+
+Use Regex:
+$ whatis -r ^[a-c]
+$ whatis -r ^[ps]
