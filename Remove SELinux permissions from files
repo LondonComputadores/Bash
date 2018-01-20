@@ -1,0 +1,12 @@
+SELinux context remains associated with files regardless whether or not SELinux is enabled.
+
+If you are like me and you find the trailing "dot" annoying in the permissions, the following command will remove the dots (remove the SELinux context).
+
+sudo setfattr -h -x security.selinux 
+
+Examples:
+sudo setfattr -h -x security.selinux /home
+
+find /home -print0 |xargs -0 -n 1 sudo setfattr -h -x security.selinux
+
+find /home -exec sudo setfattr -h -x security.selinux {} \;
