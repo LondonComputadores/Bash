@@ -1,0 +1,3 @@
+
+
+$ cat /usr/include/asm-generic/{errno-base.h,errno.h} | egrep -o "[0-9]{1,3}\s.*$"
