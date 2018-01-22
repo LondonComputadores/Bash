@@ -2,6 +2,42 @@
 2. objdump
 3. hexdump
 
+How to read Binary file assemble code(Machine code)?
+You can read Machine code. If you know assembly language. You can easily understand.
+$ objdump -S /usr/bin/python3.4
+
+/usr/bin/python3.4:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+000000000041c088 <_init>:
+  41c088:       48 83 ec 08             sub    $0x8,%rsp
+  41c08c:       48 8b 05 65 2f 4e 00    mov    0x4e2f65(%rip),%rax        # 8feff8 <_Py_capitalize__doc__+0x243898>
+  41c093:       48 85 c0                test   %rax,%rax
+  41c096:       74 05                   je     41c09d <_init+0x15>
+  41c098:       e8 13 04 00 00          callq  41c4b0 <__gmon_start__@plt>
+  41c09d:       48 83 c4 08             add    $0x8,%rsp
+  41c0a1:       c3                      retq   
+
+Disassembly of section .plt:
+
+000000000041c0b0 <initgroups@plt-0x10>:
+  41c0b0:       ff 35 52 2f 4e 00       pushq  0x4e2f52(%rip)        # 8ff008 <_Py_capitalize__doc__+0x2438a8>
+  41c0b6:       ff 25 54 2f 4e 00       jmpq   *0x4e2f54(%rip)        # 8ff010 <_Py_capitalize__doc__+0x2438b0>
+  41c0bc:       0f 1f 40 00             nopl   0x0(%rax)
+
+000000000041c0c0 <initgroups@plt>:
+  41c0c0:       ff 25 52 2f 4e 00       jmpq   *0x4e2f52(%rip)        # 8ff018 <_Py_capitalize__doc__+0x2438b8>
+  41c0c6:       68 00 00 00 00          pushq  $0x0
+  41c0cb:       e9 e0 ff ff ff          jmpq   41c0b0 <_init+0x28>
+
+000000000041c0d0 <log10@plt>:
+  41c0d0:       ff 25 4a 2f 4e 00       jmpq   *0x4e2f4a(%rip)        # 8ff020 <_Py_capitalize__doc__+0x2438c0>
+  41c0d6:       68 01 00 00 00          pushq  $0x1
+
+################################################################################################################
+
 objdump --disassemble bin/flip
 
 Output:
@@ -37,3 +73,5 @@ __text:
 10000128a: 0f 84 39 00 00 00 je 57 <_main+0xA9>
 
 ... and about 99 pages more. :) But, at least you'll be able to see the basic format of the program.
+
+
