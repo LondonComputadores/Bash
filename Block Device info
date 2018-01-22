@@ -1,0 +1,33 @@
+
+How to get block size?
+# blockdev --getbsz /dev/sda1 
+4096
+
+Returns size in bytes.
+blockdev --getsize64 /dev/sda 
+
+Returns size in sectors.
+blockdev --getsize /dev/sda 
+
+fisk -l:
+$ sudo fdisk -l /dev/sda
+
+Disk /dev/sda: 500.1 GB, 500107862016 bytes
+255 heads, 63 sectors/track, 60801 cylinders, total 976773168 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x8e3d3d94
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    58595325    29296639   83  Linux
+/dev/sda3        58595326   976773119   459088897    5  Extended
+Partition 3 does not start on physical sector boundary.
+/dev/sda5        62595072   267395071   102400000    7  HPFS/NTFS/exFAT
+/dev/sda6       267397120   472197119   102400000    7  HPFS/NTFS/exFAT
+/dev/sda7       472199168   976773119   252286976    7  HPFS/NTFS/exFAT
+/dev/sda8        58595328    62593023     1998848   82  Linux swap / Solaris
+
+
+
+
