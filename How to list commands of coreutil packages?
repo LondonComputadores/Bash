@@ -1,0 +1,2 @@
+
+$ info  | grep "coreutils" | sed -r "s/^\* //g;s/:.*(invocation.|utilities.)//g" | sed -n "5,$ p" | sed "s/\s\s\s*/ - /g"
