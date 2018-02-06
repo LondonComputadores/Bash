@@ -1,0 +1,2 @@
+
+$ man ps | col -b | sed -n "/^PROCESS STATE CODES.*/,+25p"
