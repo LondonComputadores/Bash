@@ -1,0 +1,2 @@
+
+$ awk -F ":" '!/nologin/ {if ($3 >= 1000) print $1}' /etc/passwd | xargs -n1 lastlog -b 90 -u
