@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ kill -l | grep -o "[0-9]*)\s[A-Z]*"
