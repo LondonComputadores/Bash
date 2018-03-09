@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for i in /sys/block/sd*
+do 
+if [[ $i =~ /sys/block/sd[a-z]? ]]
+then
+sector_size=$(cat /sys/block/sda/queue/hw_sector_size)
+sectors=$(cat $i/size)
+size=$(($sectors*$sector_size/(1024*1024*1024)))
+echo "/dev/${i#/sys/block/} $size GB"
+fi
+done
