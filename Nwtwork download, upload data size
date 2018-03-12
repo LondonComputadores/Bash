@@ -1,0 +1,2 @@
+$ awk -F ":" 'NR >=3 {print $1,$2 }' /proc/net/dev | \n
+awk '!/lo/ {print $1":", "Down", int($2/(1024*1024)) "MB","UP", int($10/(1024*1024)) "MB"}'
