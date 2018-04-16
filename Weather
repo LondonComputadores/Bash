@@ -1,0 +1,88 @@
+#! /bin/bash
+
+img () {
+ case $1 in
+	 1)
+	   echo a
+	 ;;
+	 2)
+	   echo b
+	 ;;
+	 [3-5])
+	   echo c
+	 ;;
+	 6)
+	   echo d
+	 ;;
+	 [7-8])
+	   echo e
+	 ;;
+	 11)
+	   echo 0
+	 ;;
+	 12)
+	   echo h
+	 ;;
+	 13|14)
+	   echo g
+	 ;;
+	 15)
+	   echo l
+	 ;;
+	 16|17)
+	   echo k
+	 ;;
+	 18|26)
+	   echo i
+	 ;;
+	 19)
+	   echo p
+	 ;;
+	 20|21|23)
+	   echo o
+	 ;;
+	 22)
+	   echo r
+	 ;;
+	 24|31)
+	   echo E
+	 ;;
+	 25)
+	   echo u
+	 ;;
+	 29)
+	   echo v
+	 ;;
+         30)
+	   echo 5
+	 ;;
+	 32)
+	   echo 6
+	 ;;
+	 33)
+	   echo A
+	 ;;
+	 34|36|37)
+	   echo B
+	 ;;
+	 35|38)
+	   echo C
+	 ;;
+	 39|40)
+	   echo G
+	 ;;
+	 41|42)
+	   echo K
+	 ;;
+	 43|44)
+	   echo O
+	 ;;
+	esac
+}
+                                           
+curl -so ~/.weather/weather-tmp http://www.accuweather.com/en/in/chennai/206671/weather-forecast/206671
+grep -i "current-weather.*h3>" -A11 ~/.weather/weather-tmp > ~/.weather/current
+awk -F ">" '/large-temp/{print $2}' ~/.weather/current | grep -o "[0-9]*" > ~/.weather/weather-values
+awk -F "\"cond\">" '/cond/{print $2}' ~/.weather/current | sed 's:</span>::' >> ~/.weather/weather-values
+cu=$(awk -F "\"" '/icon/{print $2}' ~/.weather/current | grep -o "[0-9]*") 
+img $cu >> ~/.weather/weather-values
