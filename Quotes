@@ -1,0 +1,26 @@
+#! /bin/bash
+
+nu=$(shuf -n 1 ~/.quotes/final_number.txt)
+sed -n "$nu,/^$/{/^$/!=;p}" ~/.quotes/Collected-Quotes.txt >> ~/.quotes/review
+sed -n "$nu{p}" ~/.quotes/Collected-Quotes.txt | fmt -w 55 > ~/.quotes/quotes.txt
+
+line_check=$(sed -n "$nu,+1{/^$/d;p}" ~/.quotes/Collected-Quotes.txt | wc -l)
+if [ $line_check -eq 2 ]
+then
+Authour=$(sed -n "$nu{n;p}" ~/.quotes/Collected-Quotes.txt)
+ch_count=$(echo $Authour | wc -m)
+longest_line=$(wc -L < ~/.quotes/quotes.txt)
+space=$(echo $(($longest_line-$ch_count-1)))
+s=$(printf "%-${space}s" " ")
+echo  "$s--$Authour" | fmt -w 55 >> ~/.quotes/quotes.txt
+else
+> ~/.quotes/quotes.txt 
+bash /home/mana/.local/bin/quotes
+fi
+
+wo=$(wc -w  < ~/.quotes/quotes.txt)
+if [ $wo -le 10 ] 
+then
+> ~/.quotes/quotes.txt 
+bash /home/mana/.local/bin/quotes
+fi
