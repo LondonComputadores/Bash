@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ps -A | awk 'NR == 2, NR == $NR {print $1,$NF}' | while read pid comm
+do
+echo "$comm - $(awk '/Swap/{ total += $2};END {print total/1024,"MB"}' < /proc/$pid/smaps)"
+done
