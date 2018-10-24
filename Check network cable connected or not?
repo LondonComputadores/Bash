@@ -1,0 +1,8 @@
+#!/bin/bash
+
+Using ip command:
+
+ip -o -f link addr show eth0 | grep -o "<.*>" | awk -F "," '{gsub ("<",""); if("NO-CARRIER" == $1) print "Network Cable Not Connected";else print "Network Cable Connected"}'
+
+Using ethtool command:
+sudo ethtool eth0 | awk 'END {if ("no" == $3) print "Network Cable Not connected" ;else print "Network Cable Connected"}'
