@@ -1,0 +1,3 @@
+#!/bin/bash
+
+free -h | awk 'NR == 3 {print "Memory Free:",$4};NR == 4{print "Swap Usage:",$3}'
