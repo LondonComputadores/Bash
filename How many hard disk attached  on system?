@@ -1,0 +1,6 @@
+
+Using AWK:
+awk ‘{disk += /sd.$/} END {print disk}’ /proc/partitions
+
+Using Grep:
+grep "sd.$"  /proc/partitions | wc -l
