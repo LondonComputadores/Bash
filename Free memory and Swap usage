@@ -1,3 +1,3 @@
 #!/bin/bash
 
-free -h | awk 'NR == 3 {print "Memory Free:",$4};NR == 4{print "Swap Usage:",$3}'
+free -h | awk 'BEGIN {printf "Free-Memory\tSwap-Usage\n"} NR ==3{print $4};NR == 4{print $3}' | sed '2{N;s/\n/ \t\t/}'
