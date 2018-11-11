@@ -1,2 +1,2 @@
 
-uptime | awk '{gsub(",","");if ($0 ~ "day") print $3,"day",$5,"Hours"; else print $3,"Hours"}'
+ uptime | awk '{gsub(",","");if ($0 ~ "day") print $3,$4,$5,"Hours"; else print $3,"Hours"}'
