@@ -1,0 +1,2 @@
+
+$ cat /sys/block/sd[a-z]/{size,queue/hw_sector_size} | sed 'N;s/\n/ /g' | awk '{printf "%.0f GB \n", $1*$2/1000/1000/1000}'
