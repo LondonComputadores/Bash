@@ -1,0 +1,2 @@
+
+ awk '!/^#|udp/{print $1 "\t" $2}' /etc/services | column -t
