@@ -1,2 +1,0 @@
-
-$ cat /e*/s*s | grep -Po "^\w+.*\d{1,5}/tcp"
